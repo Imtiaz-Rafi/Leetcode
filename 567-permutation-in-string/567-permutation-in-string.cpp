@@ -15,17 +15,9 @@ public:
                 if(m2[s2[r]]>0){
                     cnt = r-l+1;
                     if(cnt==s1.size()){
-                        // for(int i = l;i<=r;i++){
-                        //     cout<<s2[i];
-                        // }
-                        // cout<<endl;
                         ok = true;
                         break;
                     }
-                    // else if(cnt>s1.size()){
-                    //     m2[s2[l]]++;
-                    //     l++;
-                    // }
                     else{
                         m2[s2[r]]--;
                         r++;
