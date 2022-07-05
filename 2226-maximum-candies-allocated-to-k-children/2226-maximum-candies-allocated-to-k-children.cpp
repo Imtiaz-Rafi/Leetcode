@@ -2,7 +2,7 @@ class Solution {
 public:
     int maximumCandies(vector<int>& candies, long long k) {
         long long int l = 1;
-        long long int r = *max_element(candies.begin(),candies.end());
+        long long int r = accumulate(candies.begin(),candies.end(),0LL)/k;
         while(l<=r){
             long long int mid = (l+r+1)/2;
             long long int ans = 0;
