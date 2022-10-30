@@ -2,17 +2,17 @@ class Solution {
 public:
     
     int minCostClimbingStairs(vector<int>& cost) {
-        int dp[1010][1010];
+        int dp[1010];
         memset(dp,-1,sizeof(dp));
-        return solve(0,cost,dp);
+        return min(solve(cost.size()-1,cost,dp),solve(cost.size()-2,cost,dp));
     }
-    int solve(int i,vector<int>& cost,int dp[1010][1010]){
-        if(i>=cost.size()-1){
-            return 0;
+    int solve(int i,vector<int>& cost,int dp[1010]){
+        if(i<=1){
+            return dp[i] = cost[i];
         }
-        if(dp[i][cost[i]]!=-1){
-            return dp[i][cost[i]];
+        if(dp[i]!=-1){
+            return dp[i];
         }
-        return dp[i][cost[i]] =  min(cost[i]+solve(i+1,cost,dp),cost[i+1]+solve(i+2,cost,dp));
+        return dp[i] =  min(cost[i]+solve(i-1,cost,dp),cost[i]+solve(i-2, cost, dp));
     }
 };
