@@ -1,17 +1,17 @@
 class Solution {
 public:
     int tribonacci(int n) {
+        int dp[50];
+        memset(dp,-1,sizeof(dp));
+        return solve(n,dp);
+    }
+    int solve(int n, int dp[50]){
         if(n==0)
-            return 0;
-        if(n==1 || n==2)
+            return n;
+        if(n==2 || n==1)
             return 1;
-        int x=0,y=1,z=1,ans = 0;
-        for(int i=3;i<=n;i++){
-            ans=x+y+z;
-            x = y;
-            y = z;
-            z = ans;
-        }
-        return ans;
+        if(dp[n]!=-1)
+            return dp[n];    
+        return dp[n] = solve(n-1,dp)+solve(n-2,dp)+solve(n-3,dp);
     }
 };
