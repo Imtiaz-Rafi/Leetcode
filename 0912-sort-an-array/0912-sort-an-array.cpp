@@ -38,7 +38,7 @@ class Solution {
     }
     void mergeSort(vector<int>& nums,int l,int r){
         if(l<r){
-            int m = l+(r-l)/2;
+            int m = (l+r)/2;
             mergeSort(nums,l,m);
             mergeSort(nums,m+1,r);
         
