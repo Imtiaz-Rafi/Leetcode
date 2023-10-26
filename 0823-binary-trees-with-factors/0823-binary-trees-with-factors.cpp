@@ -23,6 +23,6 @@ public:
             count = (count+x.second)%MOD;
         }
         
-        return count%MOD;
+        return count;
     }
 };
