@@ -10,7 +10,7 @@ public:
         }
 
         char temp = board[i][j];
-        board[i][j] = ' ';
+        board[i][j] = '#';
 
         bool ans = dfs(i+1, j, count+1, board, word) ||
                 dfs(i-1, j, count+1, board, word) ||
