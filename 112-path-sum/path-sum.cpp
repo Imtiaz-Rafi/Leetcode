@@ -18,15 +18,12 @@ public:
     }
 
     bool solve(TreeNode* root, int res, int targetSum){
-        if(root==NULL){
-            // cout<<res<<endl;
+        if(root==NULL)
             return false;
-        }
 
         res += root->val;
 
         if(!root->left && !root->right){
-            // cout<<res<<endl;
             return res == targetSum;
         }
         return solve(root->left, res, targetSum) | solve(root->right, res, targetSum);
